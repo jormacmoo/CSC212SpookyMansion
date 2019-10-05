@@ -84,7 +84,10 @@ public class Place {
 	public List<Exit> getVisibleExits() {
 		List<Exit> visible = new ArrayList<>();
 		for (Exit e : this.exits) {
-			visible.add(e);
+			if (!e.getHidden()) {
+				visible.add(e);
+			} else 
+				continue;
 		}
 		return visible;
 	}

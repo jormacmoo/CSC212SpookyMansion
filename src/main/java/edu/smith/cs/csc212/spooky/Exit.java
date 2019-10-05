@@ -18,6 +18,11 @@ public class Exit {
 	private String target;
 	
 	/**
+	 * Is the exit visible at first glance?
+	 */
+	public boolean hidden;
+	
+	/**
 	 * Create a new Exit.
 	 * @param target - where it goes.
 	 * @param description - how it looks.
@@ -33,6 +38,14 @@ public class Exit {
 	 */
 	public String getDescription() {
 		return this.description;
+	}
+	
+	/**
+	 * A getter for the visibility of the exit
+	 * @return hidden - is the exit hidden
+	 */
+	public boolean getHidden() {
+		return hidden;
 	}
 	
 	/**
@@ -76,14 +89,6 @@ public class Exit {
 		}
 		return false;
 	}		
-	
-	/**
-	 * 
-	 * @return
-	 */
-	public boolean isSecret() {
-		
-	}
 	
 	/**
 	 * If the exit is not secret, does nothing

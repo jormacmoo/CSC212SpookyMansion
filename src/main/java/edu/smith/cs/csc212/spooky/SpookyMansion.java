@@ -69,6 +69,7 @@ public class SpookyMansion implements GameWorld {
 		Place attic3 = insert(Place.create("attic3", "You enter a small room. \n"
 				+ "There's an empty rocking chair in the corner but nothing else."));
 		attic3.addExit(new Exit("attic2", "Go back through the door."));
+		attic3.addExit(new SecretExit("secretRoom", "You find a trapdoor in the floor under the rocking chair."));
 
 		
 		Place balcony = insert(Place.create("balcony", "The night is pitch-black."));
