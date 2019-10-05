@@ -22,6 +22,9 @@ public class InteractiveFiction {
 		// This is the current location of the player (initialize as start).
 		// Maybe we'll expand this to a Player object.
 		String place = game.getStart();
+		
+		// This is a list of places the player has been during the current game.
+		List<Place> places = new ArrayList<>[];
 
 		// Play the game until quitting.
 		// This is too hard to express here, so we just use an infinite loop with breaks.
@@ -31,7 +34,13 @@ public class InteractiveFiction {
 			
 			System.out.println();
 			System.out.println("... --- ...");
+			if (places.contains(here)) {
+				System.out.println("This place feels familiar...");
+			}
 			System.out.println(here.getDescription());
+			
+			// Add current room to list of visited rooms
+			places.add(here);
 
 			// Game over after print!
 			if (here.isTerminalState()) {
@@ -46,7 +55,7 @@ public class InteractiveFiction {
 				System.out.println(" "+i+". " + e.getDescription());
 			}
 
-			// Figure out what the user wants to do, for now, only "quit" is special.
+			// Figure out what the user wants to do, for now, only "quit", "escape", and "q" are special.
 			List<String> words = input.getUserWords("?");
 			if (words.size() > 1) {
 				System.out.println("Only give the system 1 word at a time!");
@@ -57,7 +66,7 @@ public class InteractiveFiction {
 			// Do not uppercase action -- I have lowercased it.
 			String action = words.get(0).toLowerCase().trim();
 
-			if (action.equals("quit")) {
+			if (action.equals("quit") || action.equals("q") || action.equals("escape")) {
 				if (input.confirm("Are you sure you want to quit?")) {
 					return place;
 				} else {
@@ -101,7 +110,7 @@ public class InteractiveFiction {
 		// Actually play the game.
 		runGame(input, game);
 
-		// You get here by typing "quit" or by reaching a Terminal Place.
+		// You get here by typing "quit", "escape", "q", or by reaching a Terminal Place.
 		System.out.println("\n\n>>> GAME OVER <<<");
 	}
 

@@ -26,6 +26,10 @@ public class Place {
 	 * Whether reaching this place ends the game.
 	 */
 	private boolean terminal;
+	/**
+	 * Whether the user has been in the place before
+	 */
+	private boolean visited = false;
 	
 	/**
 	 * Internal only constructor for Place. Use {@link #create(String, String)} or {@link #terminal(String, String)} instead.
@@ -33,11 +37,12 @@ public class Place {
 	 * @param description - the user-facing description of the place.
 	 * @param terminal - whether this place ends the game.
 	 */
-	protected Place(String id, String description, boolean terminal) {
+	protected Place(String id, String description, boolean terminal, boolean visited) {
 		this.id = id;
 		this.description = description;
 		this.exits = new ArrayList<>();
 		this.terminal = terminal;
+		this.visited = visited;
 	}
 	
 	/**
@@ -128,4 +133,10 @@ public class Place {
 		return false;
 	}
 	
+	/**
+	 * 
+	 */
+	public boolean visit() {
+		
+	}
 }
