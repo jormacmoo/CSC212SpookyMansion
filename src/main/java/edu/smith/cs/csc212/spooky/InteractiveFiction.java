@@ -1,5 +1,6 @@
 package edu.smith.cs.csc212.spooky;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,7 +25,7 @@ public class InteractiveFiction {
 		String place = game.getStart();
 		
 		// This is a list of places the player has been during the current game.
-		List<Place> places = new ArrayList<>[];
+		List<Place> places = new ArrayList<Place>();
 
 		// Play the game until quitting.
 		// This is too hard to express here, so we just use an infinite loop with breaks.

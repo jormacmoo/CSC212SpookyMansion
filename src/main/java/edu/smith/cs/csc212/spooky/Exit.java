@@ -75,5 +75,20 @@ public class Exit {
 			return this.target.equals(rhs.target) && this.description.equals(rhs.description); 
 		}
 		return false;
+	}		
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean isSecret() {
+		
+	}
+	
+	/**
+	 * If the exit is not secret, does nothing
+	 */
+	public void search() {
+		
 	}
 }

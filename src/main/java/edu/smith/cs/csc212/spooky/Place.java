@@ -37,7 +37,7 @@ public class Place {
 	 * @param description - the user-facing description of the place.
 	 * @param terminal - whether this place ends the game.
 	 */
-	protected Place(String id, String description, boolean terminal, boolean visited) {
+	protected Place(String id, String description, boolean terminal) {
 		this.id = id;
 		this.description = description;
 		this.exits = new ArrayList<>();
@@ -137,6 +137,7 @@ public class Place {
 	 * 
 	 */
 	public boolean visit() {
-		
+		this.visited = true;
+		return true;
 	}
 }
